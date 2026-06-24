@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=SuperQuinquin
+Description=SuperQuinquin Boot Screen
+ModuleName=script
+
+[script]
+ScriptFile=/usr/share/plymouth/themes/superquinquin/superquinquin.script
+ImageDir=/usr/share/plymouth/themes/superquinquin/assets

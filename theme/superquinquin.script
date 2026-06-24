@@ -1,0 +1,60 @@
+// Screen size
+screen.w = Window.GetWidth(0);
+screen.h = Window.GetHeight(0);
+screen.half.w = screen.w / 2;
+screen.half.h = screen.h / 2;
+
+// --- Background ---
+Window.SetBackgroundTopColor(1, 1, 1);
+Window.SetBackgroundBottomColor(1, 1, 1);
+
+// Message
+message = null;
+
+// Flow
+state.status = "play";
+
+
+//--------------------------------- Splash ---------------------------------
+logo_image = Image("splash.png");
+logo_sprite = Sprite(logo_image);
+logo_sprite.SetX((screen.w - logo_image.GetWidth()) / 2);
+logo_sprite.SetY((screen.h - logo_image.GetHeight()) / 2);
+logo_sprite.SetZ(-100);
+
+
+//--------------------------------- Spinner (Logo animation) --------------------------
+
+# cycle through all images
+for (i = 0; i < 30; i++)
+  spinner_image[i] = Image("spinner-" + i + ".png");
+
+# set image position
+spinner_sprite = Sprite();
+spinner_sprite.SetX(Window.GetX() + (screen.half.w - spinner_image[0].GetWidth() / 2));
+spinner_sprite.SetY(Window.GetY() + (screen.half.h - spinner_image[0].GetHeight() / 2) + logo_image.GetHeight() / 2 + 100);
+
+progress = 0;
+
+fun refresh_callback () {
+    spinner_sprite.SetImage(spinner_image[Math.Int(progress / 2) % 30]);
+    progress += 1;
+}
+Plymouth.SetRefreshFunction (refresh_callback);
+
+
+//--------------------------- Normal display (unset all text) ----------------------
+fun DisplayNormalCallback() {
+    state.status = "play";
+    message = null;
+}
+Plymouth.SetDisplayNormalFunction(DisplayNormalCallback);
+
+
+//----------------------------------------- Message --------------------------------
+fun MessageCallback(text) {
+    message.image = Image.Text(text, 1, 1, 1);
+    message.sprite = Sprite(message.image);
+    message.sprite.SetPosition(screen.half.w - message.image.GetWidth() / 2, message.image.GetHeight());
+}
+Plymouth.SetMessageFunction(MessageCallback);

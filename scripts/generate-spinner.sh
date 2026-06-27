@@ -9,7 +9,6 @@ SPINNER_ARC_LENGTH=60
 SPINNER_SIZE=50
 SPINNER_MARGIN=3
 
-echo "Generating spinner frame $file..."
 start_angle=$((num * 12)); \
 end_angle=$((start_angle + SPINNER_ARC_LENGTH)); \
 bbox_max=$((SPINNER_SIZE - SPINNER_MARGIN)); \

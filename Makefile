@@ -13,6 +13,9 @@ build:
 	sed -i "s/{{VERSION}}/$(VERSION)/" build/DEBIAN/control
 	sed -i "s/{{THEME}}/$(THEME)/" build/DEBIAN/postinst
 	chmod 755 build/DEBIAN/postinst
+	@command -v dpkg-deb >/dev/null 2>&1 \
+	  && dpkg-deb --build build/plymouth-theme-$(THEME)-$(VERSION)_all \
+	  || echo "Warning: dpkg-deb not found, skipping package build"
 
 .PHONY: assets
 assets: $(ASSETS)

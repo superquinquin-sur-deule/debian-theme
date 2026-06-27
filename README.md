@@ -4,10 +4,16 @@ Custom theme for superquinquin desktop.
 
 ## Build
 
-Assets are built with `imagemagick`.
+Prepare Debian package structure before `dpkg-deb`
 
 ```console
 $ make
+```
+
+Assets are built with `imagemagick`.
+
+```console
+$ make assets
 ```
 
 ## Testing

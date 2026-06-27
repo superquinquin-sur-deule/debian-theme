@@ -1,0 +1,8 @@
+Package: plymouth-theme-superquinquin
+Version: 1.0.0
+Architecture: all
+Maintainer: Superquinquin sur Deûle <contact@superquinquin.fr>
+Depends: plymouth
+Section: misc
+Priority: optional
+Description: Custom theme for superquinquin desktop.

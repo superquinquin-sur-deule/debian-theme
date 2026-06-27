@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = "configure" ]; then
+    plymouth-set-default-theme superquinquin
+    update-initramfs -u
+fi
+
+exit 0

@@ -1,0 +1,13 @@
+services:
+  plymouth:
+    build:
+      context: .
+      dockerfile: Containerfile
+    network_mode: host
+    pid: host
+    ipc: host
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - ./theme:/usr/share/plymouth/themes/superquinquin:ro

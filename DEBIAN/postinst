@@ -2,7 +2,7 @@
 set -e
 
 if [ "$1" = "configure" ]; then
-    plymouth-set-default-theme superquinquin
+    plymouth-set-default-theme {{THEME}}
     update-initramfs -u
 fi
 

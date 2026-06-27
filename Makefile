@@ -10,7 +10,8 @@ build:
 	mkdir -p build/usr/share/plymouth/themes/$(THEME)
 	cp -r theme/* build/usr/share/plymouth/themes/$(THEME)
 	cp -r DEBIAN build/
-	sed -i "s/Version:.*/Version: ${VERSION}/" build/DEBIAN/control
+	sed -i "s/{{VERSION}}/$(VERSION)/" build/DEBIAN/control
+	sed -i "s/{{THEME}}/$(THEME)/" build/DEBIAN/postinst
 	chmod 755 build/DEBIAN/postinst
 
 .PHONY: assets

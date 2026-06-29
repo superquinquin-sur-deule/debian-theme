@@ -18,7 +18,6 @@ build:
 	@command -v dpkg-deb >/dev/null 2>&1 \
 	  && dpkg-deb --build $(BUILD_DIR) \
 	  || echo "Warning: dpkg-deb not found, skipping package build"
-	mv $(BUILD_DIR).deb .
 
 .PHONY: assets
 assets: $(ASSETS)

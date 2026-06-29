@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: plymouth-package-test
-          path: "*.deb"
+          path: "build/*.deb"
           retention-days: 5
 
       - name: Release Package
